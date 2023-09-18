@@ -10,7 +10,11 @@ private:
     int m_denominator;
 
 public:
-
+    Fraction()
+    {
+        m_numerator = 5;
+        m_denominator = 5;
+    }
 
     // 생성자는 construction 될 떄, 자동호출된다.
     // 생성자는 public으로 만들어야 한다(특별한 경우만 private으로)
@@ -32,8 +36,9 @@ int main()
 {
     // 생성자의 parameter가 없을 때는 frac으로 선언하고
     // 생성사의 parameter가 있을 떄는 frac() 으로 처리한다.
-    //Fraction frac;
-    Fraction one_third(1, 3);
+    Fraction frac;
+    frac.print();
+    Fraction one_third(1);
     one_third.print();
 }
 
