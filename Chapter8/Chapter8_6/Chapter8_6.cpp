@@ -1,37 +1,28 @@
 #include <iostream>
 
-// 소멸자는 parameter가 없다
-// memory leak를 걱정이 되면 vector와 같은 container 사용하면 된다.
-
-class IntArray
+// static 멤버 변수는 클래스에서 선언만 한다.(헤더파일)
+class Something
 {
-private:
-	int* m_arr = nullptr;
-	int m_length = 0;
+
 
 public:
-	IntArray(const int length_in)
-	{
-		m_length = length_in;
-		m_arr = new int[m_length];
-	}
+	static int m_value;
 
-	~IntArray()
-	{
-		delete m_arr;
-	}
-	int size()
-	{
-		return m_length;
-	}
+	
 };
+
+// 헤더파일이 아닌 .cpp 파일에서 초기화를 한다.
+int Something::m_value = 1;
 
 int main()
 {
-	while (true)
-	{
-		IntArray my_int_arr(10000);
-		
-	}
-	return 0;
+	std::cout << &Something::m_value << " " << Something::m_value << std::endl;
+
+	Something st1;
+	Something st2;
+
+	st1.m_value = 2;
+
+
+
 }
